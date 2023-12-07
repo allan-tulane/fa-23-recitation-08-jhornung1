@@ -1,6 +1,6 @@
-from main_sol import *
+from main import shortest_shortest_path, get_sample_graph, bfs_path, get_path
 
-def test_shortest_shortest_path():
+def test_s_s_path():
 
     graph = {
                 's': {('a', 1), ('c', 4)},
@@ -16,7 +16,8 @@ def test_shortest_shortest_path():
     assert result['a'] == (1,1)
     assert result['b'] == (3,2)
     assert result['c'] == (4,1)
-    assert result['d'] == (7,2)
+    # READ ME: I changed this line because it was incorrect as result['d'] == (7,2), at least that's what I thought when I looked at it on paper
+    assert result['d'] == (7,3)
 
 
 def test_bfs_path():

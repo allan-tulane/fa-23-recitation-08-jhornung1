@@ -2,20 +2,18 @@ from collections import deque
 from heapq import heappush, heappop 
 
 def shortest_shortest_path(graph, source):
-    """
-    Params: 
-      graph.....a graph represented as a dict where each key is a vertex
-                and the value is a set of (vertex, weight) tuples (as in the test case)
-      source....the source node
-      
-    Returns:
-      a dict where each key is a vertex and the value is a tuple of
-      (shortest path weight, shortest path number of edges). See test case for example.
-    """
-    ### TODO
-    pass
-    
+  # Initialize distances and number of edges for each vertex
+  distances = {vertex: (float('inf'), float('inf')) for vertex in graph}
+  distances[source] = (0, 0)  # Distance from source to itself is 0 with 0 edges
 
+  for k in graph:
+      for i in graph:
+          for j, weight in graph[i]:
+              # Check if the weight is 0 or if the new path is shorter
+              if distances[i][0] + weight < distances[j][0] or (weight == 0 and distances[i][1] + 1 < distances[j][1]):
+                  distances[j] = (distances[i][0] + weight, distances[i][1] + 1)
+
+  return distances
     
     
 def bfs_path(graph, source):
@@ -28,12 +26,12 @@ def bfs_path(graph, source):
     pass
 
 def get_sample_graph():
-     return {'s': {'a', 'b'},
-            'a': {'b'},
-            'b': {'c'},
-            'c': {'a', 'd'},
-            'd': {}
-            }
+   return {'s': {'a', 'b'},
+          'a': {'b'},
+          'b': {'c'},
+          'c': {'a', 'd'},
+          'd': {}
+          }
 
 
     

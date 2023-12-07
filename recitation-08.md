@@ -6,22 +6,10 @@ a) Suppose we are given a a directed, **weighted** graph $G=(V,E)$ with only pos
 
 Complete the function `shortest_shortest_path` and test with the example graph given in `test_shortest_shortest_path`. Note that the `shortest_shortest_path` function returns both the weight and the number of edges of each shortest path.
 
-.  
-.  
-.  
 
 b) What is the work and span of your algorithm? 
 
-**put in answers.md**
 
-.  
-.  
-.  
-
-
-.  
-.  
-.  
 
 ## 2. Computing paths
 
