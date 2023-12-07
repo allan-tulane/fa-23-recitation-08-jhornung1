@@ -17,13 +17,26 @@ def shortest_shortest_path(graph, source):
     
     
 def bfs_path(graph, source):
-    """
-    Returns:
-      a dict where each key is a vertex and the value is the parent of 
-      that vertex in the shortest path tree.
-    """
-    ###TODO
-    pass
+  # Initialize the parent dictionary to store the parent of each vertex
+  parent = {vertex: None for vertex in graph}
+
+  # Queue for BFS
+  queue = deque([source])
+
+  # Set the parent of the source vertex to itself
+  parent[source] = source
+
+  while queue:
+      current_vertex = queue.popleft()
+
+      for neighbor in graph[current_vertex]:
+          # Check if the neighbor has not been visited
+          if parent[neighbor] is None:
+              # Set the parent of the neighbor to the current vertex
+              parent[neighbor] = current_vertex
+              queue.append(neighbor)
+
+  return parent
 
 def get_sample_graph():
    return {'s': {'a', 'b'},
@@ -33,14 +46,18 @@ def get_sample_graph():
           'd': {}
           }
 
-
+def test_get_path():
+  graph = get_sample_graph()
+  parents = bfs_path(graph, 's')
+  assert get_path(parents, 'd') == 'sbc'
     
 def get_path(parents, destination):
-    """
-    Returns:
-      The shortest path from the source node to this destination node 
-      (excluding the destination node itself). See test_get_path for an example.
-    """
-    ###TODO
-    pass
+  path = ""
+  current_node = destination
 
+  while parents[current_node] != current_node:
+    current_node = parents[current_node]
+    path = path + current_node
+
+  path2 = path[::-1]
+  return path2

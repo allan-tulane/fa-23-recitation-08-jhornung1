@@ -25,11 +25,4 @@ Here, the dark edges indicate all the shortest paths discovered by BFS. To keep 
 
 Complete the `bfs_path` function to return this parent `dict` and test it with `test_bfs_path`. Your algorithm should not increase the asymptotic work/span of BFS.
 
-b) Next, complete `get_path`, which takes in the parent `dict` and a node, and returns a string indicating the path from the source node to the destination node. Test with `test_get_path`.
-
-
-**put in answers.md**
-
-.  
-.  
-.  
+b) Next, complete `get_path`, which takes in the parents `dict` and a node, and returns a string indicating the path from the source node to the destination node. Test with `test_get_path`.
